@@ -1,0 +1,20 @@
+syntax = "proto3";
+package payments;
+
+service PaymentGateway {
+    rpc SendPayment (SendPaymentRequest) returns (SendPaymentResponse);
+}
+
+
+// Here are the messages I am working with 
+
+message SendPaymentRequest {
+    string from_address = 1;
+    string to_address = 2;
+    uint32 amount = 3;
+}
+
+message SendPaymentResponse {
+    bool successful = 1;
+    string message = 2;
+}
